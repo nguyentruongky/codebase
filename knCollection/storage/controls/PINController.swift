@@ -14,15 +14,14 @@ enum PINUsage {
 
 class PINController: knController {
     
-    
-    let pinTextField = knUIMaker.makeTextField(font: knFont.rubikFont(size: 21),
-                                                 color: .white,
-                                                 text: "create_pin".localized)
+    let pinTextField = knUIMaker.makeTextField(text: "Create PIN",
+                                               font: UIFont.systemFont(ofSize: 21),
+                                               color: .white)
     
     func makeButton(title: String) -> UIButton {
         let button = knUIMaker.makeButton(title: title,
-                                            titleColor: .white,
-                                            font: knFont.rubikFont(size: 25))
+                                       titleColor: .white,
+                                       font: UIFont.systemFont(ofSize: 25))
         button.square(edge: 60)
         button.createRoundCorner(30)
         button.createBorder(1, color: .white)

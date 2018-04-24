@@ -39,7 +39,7 @@ func makeCall(to number: String) {
 
 
 
-enum knErrorCode : String {
+enum knErrorCode : Int {
     case loginFail
     case invalidEmail
     case invalidPassword
@@ -60,6 +60,6 @@ enum knErrorCode : String {
 
 struct knError {
     
-    var code: knErrorCode?
+    var code: Int?
     var message: String?
 }

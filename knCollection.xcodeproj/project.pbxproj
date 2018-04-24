@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		087534BB2112D011B11BE502 /* Pods_knCollection.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C768495EB502F3C71B30B701 /* Pods_knCollection.framework */; };
 		2664DBFB1F8F6747006415EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2664DBFA1F8F6747006415EC /* AppDelegate.swift */; };
 		2664DBFD1F8F6747006415EC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2664DBFC1F8F6747006415EC /* ViewController.swift */; };
 		2664DC001F8F6747006415EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2664DBFE1F8F6747006415EC /* Main.storyboard */; };
@@ -168,7 +169,10 @@
 		2664DCB81F8F7E76006415EC /* PlacePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacePickerView.swift; sourceTree = "<group>"; };
 		2664DCBA1F8F7EFD006415EC /* PhotoGallery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoGallery.swift; sourceTree = "<group>"; };
 		2664DCBD1F8F804E006415EC /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		429DB7430A4B06F971472C92 /* Pods-knCollection.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-knCollection.debug.xcconfig"; path = "Pods/Target Support Files/Pods-knCollection/Pods-knCollection.debug.xcconfig"; sourceTree = "<group>"; };
 		C16C0C781FAF00E200154F49 /* knUIMaker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = knUIMaker.swift; sourceTree = "<group>"; };
+		C768495EB502F3C71B30B701 /* Pods_knCollection.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_knCollection.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F7DBE932AB3C904E5BCAF7C0 /* Pods-knCollection.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-knCollection.release.xcconfig"; path = "Pods/Target Support Files/Pods-knCollection/Pods-knCollection.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +180,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				087534BB2112D011B11BE502 /* Pods_knCollection.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -187,6 +192,8 @@
 			children = (
 				2664DBF81F8F6747006415EC /* Products */,
 				2664DBF91F8F6747006415EC /* knCollection */,
+				E7FFA43671939ADCA36B8B60 /* Pods */,
+				40C3205BBB89D142143820E2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -341,6 +348,23 @@
 			path = controls;
 			sourceTree = "<group>";
 		};
+		40C3205BBB89D142143820E2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C768495EB502F3C71B30B701 /* Pods_knCollection.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E7FFA43671939ADCA36B8B60 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				429DB7430A4B06F971472C92 /* Pods-knCollection.debug.xcconfig */,
+				F7DBE932AB3C904E5BCAF7C0 /* Pods-knCollection.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -348,9 +372,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2664DC091F8F6747006415EC /* Build configuration list for PBXNativeTarget "knCollection" */;
 			buildPhases = (
+				4757FC91933C11BE01B40E6F /* [CP] Check Pods Manifest.lock */,
 				2664DBF31F8F6747006415EC /* Sources */,
 				2664DBF41F8F6747006415EC /* Frameworks */,
 				2664DBF51F8F6747006415EC /* Resources */,
+				D78AA96127A497A16BDCADFE /* [CP] Embed Pods Frameworks */,
+				EE1722523DE0676A0169A9DA /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -407,6 +434,65 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4757FC91933C11BE01B40E6F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-knCollection-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D78AA96127A497A16BDCADFE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-knCollection/Pods-knCollection-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-knCollection/Pods-knCollection-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EE1722523DE0676A0169A9DA /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-knCollection/Pods-knCollection-resources.sh",
+				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-knCollection/Pods-knCollection-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2664DBF31F8F6747006415EC /* Sources */ = {
@@ -624,6 +710,7 @@
 		};
 		2664DC0A1F8F6747006415EC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 429DB7430A4B06F971472C92 /* Pods-knCollection.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -639,6 +726,7 @@
 		};
 		2664DC0B1F8F6747006415EC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F7DBE932AB3C904E5BCAF7C0 /* Pods-knCollection.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

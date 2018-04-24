@@ -10,8 +10,6 @@ import UIKit
 
 class marPhotoGalleryController: knController {
     
-    weak var addPhotoController: marAddListingAddPhotosController?
-    
     var maximumSelection = 5
     
     var datasource = [UIImage]() {
@@ -52,8 +50,8 @@ class marPhotoGalleryController: knController {
     
     override func setupView() {
         
-        addBackButton(tintColor: marColor.mar_74)
-        navigationController?.changeTitleFont(marFont.font(name: .openSans_Light, size: 17), color: marColor.mar_18_21_24)
+        addBackButton(tintColor: UIColor.color(value: 74))
+        navigationController?.changeTitleFont(UIFont.boldSystemFont(ofSize: 15), color: UIColor.black)
         navigationItem.title = "Camera Rolls"
         let addBarButton = UIBarButtonItem(customView: addButton)
         navigationItem.rightBarButtonItem = addBarButton
@@ -124,7 +122,9 @@ class marPhotoCell: knCollectionCell {
     
     var isChecked: Bool = false {
         didSet {
-            imageView.createBorder(isChecked ? 2 : 0, color: marColor.mar_182_152_90_gold)
+            
+            imageView.createBorder(isChecked ? 2 : 0,
+                                   color: UIColor.color(r: 182, g: 152, b: 90))
             checkIcon.isHidden = !isChecked
         }
     }

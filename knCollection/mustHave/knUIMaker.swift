@@ -43,10 +43,10 @@ struct knUIMaker {
         return label
     }
     
-    static func makeView() -> UIView {
+    static func makeView(background: UIColor? = .white) -> UIView {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .white
+        view.backgroundColor = background
         return view
     }
     
@@ -54,7 +54,7 @@ struct knUIMaker {
                               contentMode: UIViewContentMode = .scaleAspectFit) -> UIImageView {
         let iv = UIImageView(image: image)
         iv.translatesAutoresizingMaskIntoConstraints = false
-        iv.contentMode = .scaleAspectFit
+        iv.contentMode = contentMode
         iv.clipsToBounds = true
         return iv
     }

@@ -11,17 +11,17 @@ import Alamofire
 
 struct knServiceConnector {
     
-    static fileprivate var connector = AlamofireConnector()
+    static fileprivate var connector = knAlamofireConnector()
     
     private static func getHeader() -> [String: String]? {
         
-        guard let token = ogeSetting.token else { return nil }
+        guard let token = qmSetting.token else { return nil }
         return ["Authorization": token]
     }
     
     private static func getUrl(from api: String) -> URL? {
         
-        let apiUrl = api.contains("http") ? api : ogeSetting.baseUrl + api
+        let apiUrl = api.contains("http") ? api : qmSetting.baseUrl + api
         return URL(string: apiUrl)
     }
     
@@ -135,7 +135,8 @@ struct knAlamofireConnector {
                 
                 if self.isPhysicalFailure(response: response) {
                     print(response)
-                    fail?(knError(code: .timeOut, message: response.result.error!.localizedDescription))
+                    fail?(knError(code: knErrorCode.timeOut.rawValue,
+                                  message: response.result.error!.localizedDescription))
                     print("Alamofire:: Error:: \(response.result.error!.localizedDescription)")
                     return
                 }
@@ -156,10 +157,10 @@ struct knAlamofireConnector {
     
     private func isLogicalFailure(response: AnyObject) -> knError? {
         
-        let error = JSONParser.getBool(forKey: "error", inObject: response)
+        let error = response.value(forKeyPath: "error") as? Bool ?? true
         if error == true {
-            let message = JSONParser.getString(forKey: "msg", inObject: response)
-            return knError(code: .notSure, message: message)
+            let message = response.value(forKeyPath: "msg") as? String ?? ""
+            return knError(code: knErrorCode.notSure.rawValue, message: message)
         }
         return nil
     }

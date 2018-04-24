@@ -30,8 +30,8 @@ class marMapController: knController {
 
     override func setupView() {
 
-        addBackButton(tintColor: marColor.mar_141)
-        navigationController?.removeBottomSeparator(.clear)
+        addBackButton(tintColor: UIColor.color(value: 141))
+        navigationController?.removeBottomSeparator(color: .clear)
 
         view.addSubview(mapView)
         mapView.fill(toView: view)

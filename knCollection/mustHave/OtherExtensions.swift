@@ -90,31 +90,37 @@ extension UITextView {
 
 
 
+extension Bundle {
+    var releaseVersionNumber: String? {
+        return infoDictionary?["CFBundleShortVersionString"] as? String
+    }
+    var buildVersionNumber: String? {
+        return infoDictionary?["CFBundleVersion"] as? String
+    }
+}
+
+
 
 
 extension UserDefaults {
-    func setString(key: String, value: String?) {
-        setValue(value, forKey: key)
+    static func set<T>(key: String, value: T?) {
+        UserDefaults.standard.setValue(value, forKey: key)
     }
     
-    func getString(key: String) -> String? {
-        return value(forKeyPath: key) as? String
+    static func getString(key: String) -> String? {
+        return UserDefaults.standard.value(forKeyPath: key) as? String
     }
     
-    func setBool(key: String, value: Bool?) {
-        setValue(value, forKey: key)
+    static func setBool(key: String, value: Bool?) {
+        UserDefaults.standard.setValue(value, forKey: key)
     }
     
-    func getBool(key: String, defaultValue: Bool = false) -> Bool {
-        guard let value = value(forKeyPath: key) as? Bool else { return defaultValue }
+    static func getBool(key: String, defaultValue: Bool = false) -> Bool {
+        guard let value = UserDefaults.standard.value(forKeyPath: key) as? Bool else { return defaultValue }
         return value
     }
     
-    func setInt(key: String, value: Int?) {
-        setValue(value, forKey: key)
-    }
-    
-    func getInt(key: String) -> Int? {
-        return value(forKeyPath: key) as? Int
+    static func getInt(key: String) -> Int? {
+        return UserDefaults.standard.value(forKeyPath: key) as? Int
     }
 }

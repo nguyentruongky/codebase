@@ -45,11 +45,11 @@ class marWebBrowserController: knController {
     
     override func setupView() {
         
-        navigationController?.changeTitleFont(knFont.rubikMediumFont(size: 17), color: .coin_85)
+        navigationController?.changeTitleFont(UIFont.boldSystemFont(ofSize: 17), color: UIColor.color(value: 85))
         statusBarStyle = .default
         navigationController?.isNavigationBarHidden = false
         navigationController?.removeBottomSeparator(color: .white)
-        addBackButton(tintColor: UIColor.coin_85)
+        addBackButton(tintColor: UIColor.color(value: 85))
         
         view.addSubview(webview)
         webview.fill(toView: view)

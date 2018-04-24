@@ -13,6 +13,13 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        testControl()
+    }
+    
+    func testControl() {
+        let tagView = knTagView()
+        view.addSubview(tagView)
+        tagView.fill(toView: view)
     }
 
 }

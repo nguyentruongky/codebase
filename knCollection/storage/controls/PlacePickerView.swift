@@ -39,7 +39,7 @@ class knPlacePickerView: knView {
     }
 
     func registerCells() {
-        tableView.register(marLocationCell.self, forCellReuseIdentifier: "marLocationCell")
+        tableView.register(knLocationCell.self, forCellReuseIdentifier: "marLocationCell")
     }
 
 }
@@ -69,7 +69,7 @@ extension knPlacePickerView: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "marLocationCell", for: indexPath) as! marLocationCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "marLocationCell", for: indexPath) as! knLocationCell
         cell.data = datasource[indexPath.row].address
         return cell
     }
@@ -92,3 +92,38 @@ extension knPlacePickerView: UITableViewDelegate, UITableViewDataSource {
     
 }
 
+
+class knLocationCell: knTableCell {
+    
+    var data: String? {
+        didSet {
+            nameLabel.text = data
+        }
+    }
+    
+    private let nameLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = UIColor.color(r: 73, g: 144, b: 226)
+        return label
+    }()
+    
+    override func setupView() {
+        
+        backgroundColor = UIColor.color(value: 249)
+        
+        addSubview(nameLabel)
+        nameLabel.horizontal(toView: self, space: 23)
+        nameLabel.centerY(toView: self)
+        
+        let separator = UIView()
+        separator.translatesAutoresizingMaskIntoConstraints = false
+        separator.backgroundColor = UIColor.color(value: 232)
+        
+        addSubview(separator)
+        separator.horizontal(toView: self)
+        separator.height(1)
+        separator.bottom(toView: self)
+    }
+    
+}
